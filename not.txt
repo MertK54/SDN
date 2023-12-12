@@ -1,0 +1,37 @@
+sudo mn --custom new.py --topo mytopo --controller=remote,ip=127.0.0.1,port=6653 --switch=ovsk,protocols=OpenFlow13 --mac
+
+//topolojinin açılması ve floodlight browserde gösterilmesi için!
+
+
+java -jar target/floodlight.jar^C
+// floodlight'in çalıştırılması
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+sh ovs-ofctl add-flow s1 priority=500,in_port=1,actions=output:2
+//Burda s1 den s2 ye veri gönderme
+
+sh ovs-ofctl add-flow s1 priority=500,in_port=2,actions=output:1
+//Burda s2 den s1 ye geri veri gönderme
